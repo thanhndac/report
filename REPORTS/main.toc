@@ -1,0 +1,32 @@
+\contentsline {section}{\numberline {1}Đề bài}{4}{section.1}%
+\contentsline {section}{\numberline {2}Thực hiện bằng Python}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Step 1: Thu thập dữ liệu}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Step 2: Trực quan hóa dữ liệu}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Step 3: Kiểm định ADF}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Step 4: Sai phân dữ liệu}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Step 5: Xác định tham số p và q}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Step 6: Xây dựng mô hình}{10}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Step 7: Dự báo}{10}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Step 8: Đánh giá mô hình}{12}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Step 9: Tối ưu mô hình}{12}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Kết luận chung}{13}{subsection.2.10}%
+\contentsline {section}{\numberline {3}Thực hiện bằng R}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Step 1: Thu thập dữ liệu}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Step 2: Trực quan hóa dữ liệu}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Step 3: Chuyển đổi chuỗi thời gian}{16}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Step 4: Kiểm định ADF}{16}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Step 5: Sai phân}{16}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Step 6: ACF và PACF}{17}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Step 7: Xây dựng mô hình}{17}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Step 8: Dự báo}{19}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Step 9: Đánh giá mô hình}{19}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Step 10: Auto ARIMA}{19}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Kết luận chung}{20}{subsection.3.11}%
+\contentsline {section}{\numberline {4}Thực hiện phân tích chuỗi thời gian bằng SPSS}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Step 2: Biểu đồ chuỗi thời gian}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Step 3: Kiểm tra tính dừng}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Step 4: Xác định tham số p và q}{21}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Step 5: Xây dựng mô hình ARIMA}{23}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Step 6: Đánh giá mô hình}{23}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Step 8: Lựa chọn mô hình tối ưu bằng Expert Modeler}{24}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Kết luận}{25}{subsection.4.7}%

@@ -1,0 +1,225 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Hỗ trợ tiếng Việt ---
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{vntex}
+\usepackage{amsmath}
+% --- Gói cơ bản, bố cục trang ---
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+% \usepackage{a4wide}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\onehalfspacing
+\renewcommand{\baselinestretch}{1.5}
+% \usepackage{scrextend}
+% \changefontsizes{13pt}
+
+% \usepackage{afterpage}
+
+% \newcommand\blankpage{%
+%     \null
+%     \thispagestyle{empty}%
+%     \addtocounter{page}{-1}%
+%     \newpage}
+
+% --- Toán học, ký hiệu ---
+\usepackage{amsmath,amssymb,amsfonts}
+\numberwithin{equation}{section}
+
+% --- Hình vẽ, đồ họa ---
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{color,xcolor}
+
+% --- Bảng biểu ---
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{float}
+
+% --- Caption, subfigure ---
+\usepackage[margin=10pt,font={small,it,sl},labelfont=bf,labelsep=endash]{caption}
+\usepackage{subcaption}
+% \usepackage[tight,footnotesize]{subfigure}
+
+% --- Thuật toán, liệt kê ---
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+
+% --- Khung, box, môi trường ---
+\usepackage{mdframed}
+\newmdenv[
+  linecolor=black,
+  skipabove=\topsep,
+  skipbelow=\topsep,
+  leftmargin=25pt,
+  rightmargin=2pt,
+  innerleftmargin=5pt,
+  innerrightmargin=5pt
+]{mybox}
+
+% --- Fancy verbatim ---
+\usepackage{fancyvrb}
+
+% --- Tiêu đề, mục lục sâu ---
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+% --- Định nghĩa subsubsubsection ---
+\makeatletter
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{7em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+
+% --- Định lý, mệnh đề ---
+\newtheorem{dinhly}{{\bf Định lý}}
+\newtheorem{tinhchat}[subsection]{{\bf Tính chất}}
+\newtheorem{menhde}[subsection]{{\bf Mệnh đề}}
+\newtheorem{hequa}[subsection]{{\bf Hệ quả}}
+
+% --- Header & Footer ---
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{%
+  \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+      \put(0,-8){\includegraphics[width=10mm,height=8mm]{LOGO.PNG}}
+    \end{picture}&
+    \begin{tabular}{l}
+      \textbf{\ttfamily Trường Đại học Công nghệ Thông tin}\\
+      \textbf{\ttfamily Khoa Hệ thống Thông tin}
+    \end{tabular}
+  \end{tabular}
+}
+\fancyhead[R]{%
+  \begin{tabular}{l}
+    \tiny \bf\\
+    \tiny \bf
+  \end{tabular}
+}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Báo cáo Bài tập}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+% --- Hyperref ---
+\usepackage{hyperref}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+  citecolor=black,
+  colorlinks=true
+}
+
+% --- Lệnh tạo nhiều dòng chấm (nếu cần) ---
+\usepackage{pgffor}
+\newcommand{\generateLines}[1]{%
+  \foreach \i in {1,...,#1}{%
+    \noindent\makebox[\textwidth]{\dotfill} \\[1em]
+  }%
+}
+
+% --- Đánh số hình theo section ---
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
+\begin{document}
+
+% ----------------- TRANG BÌA -----------------
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\[3pt]
+\textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}\\[3pt]
+KHOA HỆ THỐNG THÔNG TIN
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=5cm]{LOGO.PNG}
+\end{center}
+\end{figure}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{l}{\textbf{{\large PHÂN TÍCH DỮ LIỆU KINH DOANH}}}\\
+\hline\\
+
+\multicolumn{1}{l}{\textbf{{\large Báo cáo BTVN:}}}\\[3pt]
+\textbf{{\Large LAB00 - Bài tập Chương 5}}\\[3pt]
+
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{01cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{5 cm} & GVHD :  & Dr. Trần Văn Hải Triều \\[3pt]
+              & SV thực hiện: &  Nguyễn Đắc Thành  \\[3pt]
+              & MSSV: & 23521449 \\\\[3pt]
+\end{tabular}
+\end{table}
+
+\vfill
+\begin{center}
+{\footnotesize \textbf{TP. HỒ CHÍ MINH, THÁNG 03/2026}}
+\end{center}
+\end{titlepage}
+
+% ----------------- MỤC LỤC & DANH MỤC -----------------
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\newpage
+\tableofcontents
+% \newpage
+% \listoffigures
+% \newpage
+% \listoftables
+% \newpage
+
+\mathversion{bold}
+
+% ----------------- NỘI DUNG CHÍNH -----------------
+\input{LAB05/Parts/DeBai.tex}
+\input{LAB05/Parts/PhanA.tex}
+% \input{LAB03/Parts/Phan2.tex}
+
+
+
+% ----------------- TÀI LIỆU THAM KHẢO -----------------
+% \newpage
+% \begin{thebibliography}{99}
+% \addcontentsline{toc}{section}{\bf Tài liệu tham khảo}
+
+% \bibitem{eva1} Nguyễn Đình Huy, Lê Xuân Đại và cộng sự (2018), \textit{Giáo trình Giải tích 2}, Nhà xuất bản Đại học Quốc Gia, TP.HCM.
+% \bibitem{eva2} James Stewart (2014), \textit{Calculus -- Early Transcendentals -- Eighth Edition}, United States of America.
+% \bibitem{eva3} Tăng Lâm Tường Vinh. ``Vẽ 3D Trong Geogebra - Giải Tích 2.'' YouTube, 18-03-2022. \url{https://www.youtube.com/watch?v=cERVa23itQc}
+
+% \end{thebibliography}
+
+\end{document}
