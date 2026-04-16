@@ -1,0 +1,68 @@
+\newpage
+\section{Cơ sở lý thuyết}
+\subsection{Extreme Gradient Boosting (XGBoost)}
+
+\subsubsection{Khái niệm}
+
+Extreme Gradient Boosting (XGBoost) là một thuật toán học máy mạnh mẽ thuộc họ Học tập kết hợp (Ensemble Learning), cụ thể là dựa trên kỹ thuật Gradient Boosting Decision Tree (GBDT). Được thiết kế để tối ưu hóa cả về tốc độ tính toán lẫn hiệu suất dự đoán, XGBoost đã trở thành một trong những tiêu chuẩn vàng (gold standard) cho các bài toán phân lớp và hồi quy trên dữ liệu dạng bảng (tabular data) (Géron, 2019).
+
+Khác với Random Forest (xây dựng nhiều cây quyết định một cách độc lập và song song), XGBoost hoạt động theo cơ chế tuần tự: mỗi cây quyết định thế hệ sau sẽ tập trung vào việc khắc phục những sai số (residuals) mà các cây thế hệ trước đó chưa xử lý tốt (Hastie, Tibshirani, \& Friedman, 2009).
+
+\subsubsection{Nguyên lý hoạt động và Cơ sở toán học}
+
+Sức mạnh cốt lõi của XGBoost nằm ở việc tích hợp trực tiếp cơ chế điều chuẩn (Regularization) vào hàm mục tiêu (Objective Function) để kiểm soát độ phức tạp của mô hình, từ đó ngăn chặn hiện tượng quá khớp (Overfitting).
+
+Tại bước lặp thứ $t$, hàm mục tiêu được định nghĩa như sau:
+
+$$\mathcal{L}^{(t)} = \sum_{i=1}^{n} l\left(y_i, \hat{y}_i^{(t-1)} + f_t(x_i)\right) + \Omega(f_t)$$
+
+Trong đó:
+\begin{itemize}
+    \item $l(y_i, \hat{y}_i)$ là hàm suy hao (Loss function).
+    \item $f_t(x_i)$ là cây quyết định tại bước $t$.
+    \item $\Omega(f_t)$ là thành phần điều chuẩn:
+    $$
+    \Omega(f_t) = \gamma T + \frac{1}{2}\lambda \sum_{j=1}^{T} w_j^2
+    $$
+\end{itemize}
+
+Trong đó $T$ là số lá, $w_j$ là trọng số tại lá $j$, $\gamma$ và $\lambda$ là các hệ số điều chuẩn.
+
+XGBoost sử dụng khai triển Taylor bậc hai để tối ưu hóa hàm mục tiêu, tận dụng cả Gradient và Hessian, giúp hội tụ nhanh hơn so với GBDT truyền thống.
+
+\subsubsection{Các tham số cấu hình quan trọng (Hyperparameters)}
+
+\begin{lstlisting}[language=Python, caption={Tham số XGBoost cho bài toán phân lớp}, label={lst:xgb_params}]
+xgb_params = {
+    'learning_rate': 0.1,
+    'max_depth': 6,
+    'min_child_weight': 1,
+    'gamma': 0.1,
+    'subsample': 0.8,
+    'colsample_bytree': 0.8,
+    'scale_pos_weight': 1,
+    'objective': 'binary:logistic'
+}
+\end{lstlisting}
+
+\subsubsection{Điểm mạnh và Điểm yếu khi áp dụng phát hiện Malware trên nền tảng TMĐT}
+
+\textbf{Điểm mạnh:}
+\begin{itemize}
+    \item \textbf{Hiệu suất cao:} XGBoost phát hiện tốt các mối quan hệ phi tuyến phức tạp trong dữ liệu.
+    \item \textbf{Xử lý dữ liệu mất cân bằng:} Tham số \texttt{scale\_pos\_weight} giúp cải thiện Recall.
+    \item \textbf{Dự đoán nhanh:} Phù hợp hệ thống thời gian thực.
+\end{itemize}
+
+\textbf{Điểm yếu:}
+\begin{itemize}
+    \item \textbf{Khó tinh chỉnh:} Nhiều hyperparameters.
+    \item \textbf{Black-box:} Khó giải thích.
+    \item \textbf{Tốn RAM:} Với dữ liệu lớn.
+\end{itemize}
+
+\subsubsection*{Tài liệu tham khảo}
+\begin{itemize}
+    \item Géron, A. (2019). \textit{Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow}.
+    \item Hastie, T., Tibshirani, R., \& Friedman, J. (2009). \textit{The Elements of Statistical Learning}.
+\end{itemize}

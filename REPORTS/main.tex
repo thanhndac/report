@@ -67,6 +67,23 @@
 % --- Fancy verbatim ---
 \usepackage{fancyvrb}
 
+% --- Code ---
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single
+    language=Python,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true
+}
+
+\sloppy
+
 % --- Tiêu đề, mục lục sâu ---
 \usepackage{titlesec}
 \setcounter{secnumdepth}{4}
@@ -205,9 +222,7 @@ KHOA HỆ THỐNG THÔNG TIN
 \mathversion{bold}
 
 % ----------------- NỘI DUNG CHÍNH -----------------
-\input{LAB05/Parts/DeBai.tex}
-\input{LAB05/Parts/PhanA.tex}
-% \input{LAB03/Parts/Phan2.tex}
+\input{Parts/CoSoLyThuyet.tex}
 
 
 
